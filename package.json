@@ -12,12 +12,12 @@
     "db:drop": "dropdb vinyl",
     "db:schema": "psql -d vinyl < src/db/schema.sql",
     "db:seed": "psql -d vinyl < src/db/albums.sql",
+    "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed",
     "test": "./node_modules/.bin/eslint src"
   },
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
     "pg": "^6.2.4"
