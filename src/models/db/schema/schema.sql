@@ -4,7 +4,6 @@ CREATE TABLE albums (
   artist VARCHAR(255) NOT NULL
 );
 
-
 CREATE TABLE member (
   id SERIAL,
   name VARCHAR(255) NOT NULL,
@@ -12,3 +11,4 @@ CREATE TABLE member (
   password VARCHAR(255) NOT NULL,
   role VARCHAR(255) NOT NULL DEFAULT 'member'
 );
+
