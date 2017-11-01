@@ -11,14 +11,8 @@
 
   <h2>Records</h2>
 
-  <div class="album-list">
-    <% albums.forEach(function(album) { %>
+  <div class="main-wrapper">
+    <% include ../partials/nav.ejs %>
       <div>
-        <h5><a href="/albums/<%= album.id %>"><%= album.title %></a></h5>
-        <span><%= album.artist %></span>
-      </div>
-    <% }) %>
-  </div>
-
-</body>
-</html>
+        <h5></h5>
+        <span></span>
