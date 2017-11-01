@@ -8,3 +8,4 @@ const config = {
 const db = pgp(config)
 
 module.exports = db
+
