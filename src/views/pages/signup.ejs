@@ -3,17 +3,18 @@
 
   <h1>Sign up for Vinyl</h1>
 
-  <form action="/action_page.php">
+  <form action="/signup" method="POST">
     <label for="name">Name:</label>
     <input type="text" name="name" placeholder="Enter name">
     <label for="email">Email:</label>
     <input type="email" name="email" placeholder="Enter email">
     <label for="password">Password:</label>
-    <input type="password">
-    <label for="confirm-password">Confirm Password:</label>
-    <input type="confirm-password">
-    <button type="submit" name="Sign up"></button>
+    <input type="password" name="password">
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" name="confirm_password">
+    <button type="submit">Sign up</button>
   </form>
+  <h4><%- message %></h4>
 
 
 
