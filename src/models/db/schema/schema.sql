@@ -3,3 +3,12 @@ CREATE TABLE albums (
   title VARCHAR(255) NOT NULL,
   artist VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE member (
+  id SERIAL,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(255) NOT NULL DEFAULT 'member'
+);
+

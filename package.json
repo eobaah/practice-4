@@ -18,14 +18,20 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "connect-pg-simple": "^4.2.1",
+    "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
-    "pg": "^6.2.4"
+    "express-session": "^1.15.6",
+    "moment": "^2.19.1",
+    "pg": "^6.2.4",
+    "pg-promise": "^7.2.0"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-import": "^2.7.0",
+    "morgan": "^1.9.0",
     "nodemon": "^1.12.1"
   }
 }

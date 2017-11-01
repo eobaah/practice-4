@@ -1,11 +1,11 @@
-const pgp = require('pg-promise')();
+const pgp = require('pg-promise')()
 
 const config = {
-  database: process.env.DATABASE,
-  host: process.env.HOST,
-  port: process.env.PORT,
-};
+  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT
+}
+const db = pgp(config)
 
-const db = pgp(config);
+module.exports = db
 
-module.exports = db;
