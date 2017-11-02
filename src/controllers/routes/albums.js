@@ -5,6 +5,7 @@ router.get('/shits', (req, res) => {
   res.send('test this')
 
 })
+
 router.get('/', (req, res) => {
   db.getAlbums()
    .then( (albums, error)  => {
@@ -18,16 +19,23 @@ router.get('/', (req, res) => {
 
 router.get('/albums/:albumID', (req, res) => {
   const albumID = req.params.albumID
-
-  db.getAlbumsByID(albumID)
-    .then( (albums , error) => {
+  Promise.all([
+    db.getAlbumsByID(albumID),
+    db.getReviewByAlbumID(albumID)
+  ])
+   .then( (albumInfo, error)  => {
+     const albums = albumInfo[0]
+     const reviews = albumInfo[1]
+     console.log( "albums:", albums )
+     console.log( "reviews:", reviews )
     if (error) {
       res.status(500).render('error', {error})
     } else {
-      const album = albums[0]
-      res.render('pages/album', {album})
+      res.render('review', {albums, reviews})
     }
   })
 })
+
+
 
 module.exports = router
