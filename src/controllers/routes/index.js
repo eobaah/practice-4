@@ -9,4 +9,10 @@ router.use('/login', login)
 router.use('/profile', profile)
 router.use( '/', albums )
 
+router.get('/logout', (req, res) => {
+  req.session.destroy( () => {
+    res.redirect('/')
+  })
+})
+
 module.exports = router
