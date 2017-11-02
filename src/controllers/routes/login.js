@@ -1,5 +1,6 @@
 const router = require( 'express' ).Router()
 const db = require( '../../models/member-profile' )
+const {hash_compare} = require( '../../authentication' )
 
 router.get('/', (req, res) => {
   res.status(200).render('pages/login', {message:""})
@@ -13,10 +14,16 @@ router.post('/', (req, res) => {
       if( !oldMember ) {
         res.status(200).render('pages/login', { message: "please check your login details"} )
       } else {
-        if( oldMember.password === password ) {
-          req.session.user = oldMember
-          res.status(200).redirect( `/profile/${oldMember.id}` )
-        }
+        hash_compare(password, oldMember.password)
+          .then( validPassword => {
+            console.log(validPassword)
+            if( validPassword ) {
+              req.session.user = oldMember
+              res.status(200).redirect( `/profile/${oldMember.id}` )
+            } else {
+              res.status(200).render('pages/login', { message: "Error: please try again"} )
+            }
+          })
       }
     })
 })

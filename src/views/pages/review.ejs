@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<h1><%- albums[0].title %></h1>
+<button class="" href=`/albums/<%- albums[0].id %>`>Add review</button>
+
+<% reviews.forEach( review => { %>
+  <div class="review-container">
+    <div class="container-top-row">
+      <span> reviews.title </span>
+      <span> reviews.review_date </span>
+    </div>
+    <div class="container-middle-row">
+      <span> reviews.description</span>
+    </div>
+    <div class="container-footer-row">
+      <span> by </span>
+      <span> reviews.reviewer_name </span>
+    </div>
+  </div>
+<% }) %>
+
+<% include ../partials/footer %>
